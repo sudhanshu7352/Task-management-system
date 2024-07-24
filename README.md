@@ -8,16 +8,19 @@ This project is a simple MERN (MongoDB, Express, React, Node.js) stack applicati
 - **Register:** Allows new users to create an account.
 - **Task Management:** Allows users to manage their tasks.
 
+### Deployed link :
+https://task-management-system-ebon-five.vercel.app/register
+
 Sample Snapshots:
 
 ### Task page
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/469c2489-8504-4b39-9e55-10ae15fe83c8)
 
 ### Login Page
-![alt text](image-1.png)
+![image](https://github.com/user-attachments/assets/ba378c87-da67-4a66-bcc7-f14715105378)
 
 ### Register Page
-![alt text](image-2.png)
+![image](https://github.com/user-attachments/assets/2c4fc260-058d-4893-8bf0-b6c30bf9f851)
 
 
 ## Features
@@ -28,24 +31,23 @@ Sample Snapshots:
 ## Project Structure
 
 ```
-/mern-stack-project
+/Task-management-system
 │
-├── client/                # React frontend
+├── frontend/              # React frontend
 │   ├── public/            # Public files
 │   ├── src/               # Source files
 │   │   ├── actions/       # Redux actions
 │   │   ├── components/    # React components
 │   │   ├── reducers/      # Redux reducers
-│   │   ├── screens/       # Screens (Login, Register, Task Management)
+│   │   ├── store/         # Redux store
 │   │   ├── App.js         # Main React component
 │   │   └── index.js       # Entry point
 │   └── package.json       # Frontend dependencies
 │
-├── server/                # Node.js backend
+├── backend/                # Node.js backend
 │   ├── controllers/       # Controllers for handling requests
 │   ├── models/            # Mongoose models
 │   ├── routes/            # API routes
-│   ├── config/            # Configuration files (e.g., database config)
 │   ├── middleware/        # Middleware (e.g., authentication middleware)
 │   ├── server.js          # Entry point
 │   └── package.json       # Backend dependencies
@@ -67,30 +69,31 @@ Sample Snapshots:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/mern-stack-project.git
-   cd mern-stack-project
+   git clone https://github.com/sudhanshu7352/Task-management-system.git
+   cd Task-management-system
    ```
 
 2. **Install server dependencies:**
 
    ```bash
-   cd server
+   cd backend
    npm install
    ```
 
 3. **Install client dependencies:**
 
    ```bash
-   cd ../client
+   cd ../frontend
    npm install
    ```
 
 4. **Configure environment variables:**
 
-   - Create a `.env` file in the `server` directory and add your MongoDB connection string:
+   - Create a `.env` file in the `backend` directory and add your MongoDB connection string:
 
      ```env
-     MONGODB_URI=mongodb://localhost:27017/your-database-name
+     PORT=5000
+     MONGODB_URI=<mongo-URI>
      JWT_SECRET=your-jwt-secret
      ```
 
@@ -99,14 +102,14 @@ Sample Snapshots:
    - Start the backend server:
 
      ```bash
-     cd server
+     cd backend
      npm start
      ```
 
    - In a separate terminal, start the frontend server:
 
      ```bash
-     cd client
+     cd frontend
      npm start
      ```
 
@@ -126,16 +129,16 @@ Sample Snapshots:
 
 ### Task Management
 
-- After logging in, navigate to `/tasks` to manage your tasks.
+- After logging in, navigate to `/` to manage your tasks.
 - You can create, read, update, and delete tasks.
 
 ## API Endpoints
 
 ### Authentication
 
-- **POST /api/auth/register:** Register a new user.
-- **POST /api/auth/login:** Log in a user.
-
+- **POST /api/users/register:** Register a new user.
+- **POST /api/users/login:** Log in a user.
+- **GET /api/users/verify:** Token Verification.
 ### Tasks
 
 - **GET /api/tasks:** Retrieve all tasks for the logged-in user.
@@ -157,10 +160,3 @@ Sample Snapshots:
   - Mongoose
   - JWT (JSON Web Tokens)
 
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request with improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License.
